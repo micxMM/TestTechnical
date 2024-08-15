@@ -1,0 +1,92 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+ 
+public  class HelloWorld
+{
+ public class Karyawan{
+public string    EmployeeID{ get; set; }
+public string    FullName{ get; set; }
+public DateTime  BIrthDate { get; set; }
+    }
+    
+    public static void Main(string[] args)
+    { 
+       var karyawanTest = new  Karyawan[100];DateTime result;
+     string input;int i=0;int number=1001;string a,b;int c=0;
+        do{
+            
+          Console.WriteLine("1. Add Karyawan");
+          Console.WriteLine("2. View Karyawan");
+          Console.WriteLine("3. Delete Karyawan");
+           Console.WriteLine("4. Keluar");
+          Console.WriteLine("Silahkan Pilih Menu yang diinginkan");
+          input = Console.ReadLine();
+          switch(input){
+              case "1": 
+             c=0;
+             Console.Write("Full Name : ");  a=Console.ReadLine();
+             Console.Write("Birth Date :(mm/dd/yyyy) ");  b=Console.ReadLine();
+              if ( String.IsNullOrEmpty(a) ||String.IsNullOrEmpty(b)){
+                  Console.WriteLine("inputan ada yang kosong");
+                  break;
+              }
+              for(int z=0;z<i;z++){
+                  if(karyawanTest[z].FullName==a)c++;
+              }
+              if (c!=0){
+                  Console.WriteLine("data duplikat");
+                  break;
+              }
+              karyawanTest[i]=new Karyawan();
+              karyawanTest[i].EmployeeID=number.ToString(); 
+              karyawanTest[i].FullName=a; 
+if (DateTime.TryParse(b, out result))
+{
+   karyawanTest[i].BIrthDate=result;
+    i++;number++;
+}
+else
+{
+   Console.WriteLine("{0} is not in the correct format.", b);
+} 
+              break;
+              case "2": 
+              try{
+              foreach(var item in karyawanTest)
+{if ( !String.IsNullOrEmpty(item.EmployeeID))
+Console.WriteLine(item.EmployeeID + " "+ item.FullName + " " +String.Format("{0:dd-MMM-yy}",           item.BIrthDate));
+} 
+                  
+              }catch(Exception e){
+    Console.WriteLine(" ");
+}
+Console.WriteLine("enter to continue");
+Console.ReadLine();
+              break;
+              case "3": 
+               Console.Write("Full Name : "); a=Console.ReadLine();
+              for(int z=0;z<i;z++){
+                  if(karyawanTest[z].FullName==a){
+                      for(int x=z;x<i-1;x++){
+                          karyawanTest[z]=karyawanTest[z+1];
+                      }
+                      if(z==i-1){
+                          karyawanTest[z]=new Karyawan();
+                      }
+                  }
+              }
+              break;
+              case "4":
+              break;
+              default:  
+              Console.WriteLine("Tidak ada pilihan yang dibuat");
+              break;
+          }
+           Console.Clear();
+        }while(input!="4");
+        
+          Console.WriteLine("keluar");
+    }
+}
