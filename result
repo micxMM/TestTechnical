@@ -72,10 +72,9 @@ Console.ReadLine();
                   if(karyawanTest[z].FullName==a){
                       for(int x=z;x<i-1;x++){
                           karyawanTest[z]=karyawanTest[z+1];
-                      }
-                      if(z==i-1){
-                          karyawanTest[z]=new Karyawan();
-                      }
+                      } 
+                          karyawanTest[i-1]=new Karyawan();
+                       
                   }
               }
               break;
