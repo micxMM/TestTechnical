@@ -21,7 +21,7 @@ public DateTime  BIrthDate { get; set; }
           Console.WriteLine("2. View Karyawan");
           Console.WriteLine("3. Delete Karyawan");
            Console.WriteLine("4. Keluar");
-          Console.WriteLine("Silahkan Pilih Menu yang diinginkan");
+          Console.Write("Silahkan Pilih Menu yang diinginkan : ");
           input = Console.ReadLine();
           switch(input){
               case "1": 
@@ -39,11 +39,12 @@ public DateTime  BIrthDate { get; set; }
                   Console.WriteLine("data duplikat");
                   break;
               }
-              karyawanTest[i]=new Karyawan();
-              karyawanTest[i].EmployeeID=number.ToString(); 
-              karyawanTest[i].FullName=a; 
+              
 if (DateTime.TryParse(b, out result))
 {
+    karyawanTest[i]=new Karyawan();
+              karyawanTest[i].EmployeeID=number.ToString(); 
+              karyawanTest[i].FullName=a; 
    karyawanTest[i].BIrthDate=result;
     i++;number++;
 }
